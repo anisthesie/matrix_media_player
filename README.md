@@ -1,5 +1,5 @@
-Matrix Media Player
-=============
+# Matrix Media Player
+
 
 Matrix Media Player is command line tool that converts videos and images to ascii art in the command line.
 It can record the output and write to a video file.
@@ -25,7 +25,17 @@ Options:
          --file (file path) : Input file path, image or video
 ```
 
-## Modes
+# Examples
+### Video Default
+![haha](examples/video-default.gif)
+### Video --no-pixels
+![haha](examples/video-nopixels.gif)
 
+### Default
+![Default](examples/default.png)
+### --no-pixels
+![--no-pixels](examples/no-pixels.png)
+### --no-color
+![--no-color](examples/no-color.png)
 
 
