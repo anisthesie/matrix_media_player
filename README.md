@@ -31,6 +31,8 @@ Options:
 ### Video --no-pixels
 ![haha](examples/video-nopixels.gif)
 
+# Images
+
 ### Default
 ![Default](examples/default.png)
 ### --no-pixels
