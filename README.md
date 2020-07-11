@@ -24,6 +24,7 @@ Options:
          --no-resize : Doesn't resize the frames to fit the console
          --file (file path) : Input file path, image or video
 ```
+Resize the command window so that the picture fits perfectly, when the recording starts do not move the window and keep it focused until the recording stops.
 
 # Examples
 ### Video Default                          //    Video --no-pixels
