@@ -26,10 +26,8 @@ Options:
 ```
 
 # Examples
-### Video Default
-![haha](examples/video-default.gif)
-### Video --no-pixels
-![haha](examples/video-nopixels.gif)
+### Video Default                     ### Video --no-pixels
+![haha](examples/video-default.gif)  ![haha](examples/video-nopixels.gif)
 
 # Images
 
