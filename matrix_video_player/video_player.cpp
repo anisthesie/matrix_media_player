@@ -50,6 +50,7 @@ void I2A::Video::init_video(cv::VideoCapture& cap) const {
 	video_writer.open("out-video.mp4", -1, out_fps, size, true);
 	if (!video_writer.isOpened()) {
 		std::cout << "Could not open the output video for write: " << std::endl;
+		std::cout << "fps: " << out_fps << std::endl << "size: " << size.height << "x" << size.width << std::endl;
 		std::exit(-1);
 	}
 	for (int i = 0; i < ascii_frames->size(); i++) {

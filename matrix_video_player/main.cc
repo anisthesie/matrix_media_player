@@ -34,8 +34,11 @@ int main(int argc, char **argv) {
 	const std::string &filename = input.getCmdOption("--file");
 	if (!filename.empty()) {
 		cv::Mat mat = cv::imread(filename);
-		if (mat.empty()) 
+		if (mat.empty()) {
 			I2A::Video video(filename, color, pixelise, resize);
+			return 0;
+			}
+
 		
 		I2A::Converter converter(mat, color, pixelise, resize);
 		converter.print_image();
