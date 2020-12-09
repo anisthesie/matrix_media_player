@@ -13,7 +13,7 @@ Clone this repository and open it in Visual Studio.
 
 ## Usage
 
-At the moment the program only works on Windows. Maybe someone will port it to linux?.
+At the moment the program only works on Windows. Maybe someone will port it to linux?
 
 Windows versions prior to Windows 10 need a console that supports ANSI to use colors (i recommend [ConEmu](https://github.com/Maximus5/ConEmu)).
 
