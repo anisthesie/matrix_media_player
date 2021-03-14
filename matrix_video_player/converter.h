@@ -29,7 +29,7 @@ namespace I2A
         public:
 			cv::String get_ascii_image() const;
             explicit Converter(std::string path, bool color, bool pixelise = true, bool resize = true);
-			explicit Converter(cv::Mat& image, bool color, bool pixelise = true, bool resize = true);
+			explicit Converter(cv::Mat& image, bool color, bool pixelise = true, bool resize = true, bool rand = false);
 
             virtual ~Converter();
 
@@ -49,7 +49,7 @@ namespace I2A
             cv::Mat image, coloured_image;
             UInt32 square_size;
             std::string ascii_image;
-			bool color, resize, pixelise;
+			bool color, resize, pixelise, rand;
     };
 };
 

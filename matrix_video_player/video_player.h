@@ -18,7 +18,7 @@ namespace I2A {
 class Video {
 
 public:
-	explicit Video(std::string video_path, bool color = true, bool pixelise = true, bool resize = true);
+	explicit Video(std::string video_path, bool color = true, bool pixelise = true, bool resize = true, bool rand = false);
 	explicit Video(cv::VideoCapture& capture, bool color = true, bool pixelise = true, bool resize = true);
 
 private: 
@@ -26,7 +26,7 @@ private:
 	void process_frame(cv::Mat& frame) const;
 
 	std::string video_path;
-	bool color, pixelise, resize;
+	bool color, pixelise, resize, rand;
 	std::vector<std::string>* ascii_frames;
 };
 

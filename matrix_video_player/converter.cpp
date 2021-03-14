@@ -10,12 +10,13 @@ Description  : Single argument constructor for the converter class
 constexpr int MAX_SIZE = 900;
 
 
-Converter::Converter(cv::Mat& p_image, bool color, bool pixelise, bool resize) :
+Converter::Converter(cv::Mat& p_image, bool color, bool pixelise, bool resize, bool rand) :
 	square_size(10UL),
 	ascii_image(""),
 	color(color),
 	resize(resize),
-	pixelise(pixelise) {
+	pixelise(pixelise),
+	rand(rand) {
 
 	coloured_image = p_image;
 	cv::cvtColor(p_image, image, cv::COLOR_BGR2GRAY);
@@ -193,7 +194,7 @@ std::string Converter::average_to_ascii(average avr) const noexcept
 		character += "m";
 	}
 
-	if (pixelise) {
+	if (pixelise && !rand) {
 		if (avr.sum <= 31UL)
 		{
 			character += "@";
@@ -235,7 +236,10 @@ std::string Converter::average_to_ascii(average avr) const noexcept
 			character += " ";
 		}
 	}
-	else character += "@";
+	else if (rand) {
+		character += (33 + std::rand() % 93);
+	}
+	else if(!pixelise) character += "@";
 
 	if(color) character += "\x1b[0m";
 

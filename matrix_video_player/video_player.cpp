@@ -2,8 +2,8 @@
 
 using namespace I2A;
 
-I2A::Video::Video(std::string video_path, bool color, bool pixelise, bool resize) :
-	 video_path(video_path), color(color), resize(resize), pixelise(pixelise) {
+I2A::Video::Video(std::string video_path, bool color, bool pixelise, bool resize, bool rand) :
+	 video_path(video_path), color(color), resize(resize), pixelise(pixelise), rand(rand) {
 	ascii_frames = new std::vector<std::string>;
 	std::cout << "Reading video file..." << std::endl;
 	cv::VideoCapture cap(video_path);
@@ -26,6 +26,7 @@ void I2A::Video::init_video(cv::VideoCapture& cap) const {
 
 	bool skip = false;
 	cv::Mat frame;
+	std::cout << "Processing frames..." << std::endl;
 	while (true) {
 		if (!cap.read(frame)) break;
 		if (skip) {
@@ -41,13 +42,13 @@ void I2A::Video::init_video(cv::VideoCapture& cap) const {
 			  << "Press Enter to continue" << std::endl;
 
 	std::getchar();
-	std::cout << std::endl << ascii_frames->at(rand() % ascii_frames->size());
+	std::cout << std::endl << ascii_frames->at(std::rand() % ascii_frames->size());
 	std::getchar();
 
 	system("cls");
 	cv::Size size = hwnd2mat(GetConsoleWindow()).size();
 	cv::VideoWriter video_writer;
-	video_writer.open("out-video.mp4", -1, out_fps, size, true);
+	video_writer.open("out-video-"+std::to_string(std::rand())+".mp4", -1, out_fps, size, true);
 	if (!video_writer.isOpened()) {
 		std::cout << "Could not open the output video for write: " << std::endl;
 		std::cout << "fps: " << out_fps << std::endl << "size: " << size.height << "x" << size.width << std::endl;
@@ -55,7 +56,7 @@ void I2A::Video::init_video(cv::VideoCapture& cap) const {
 	}
 	for (int i = 0; i < ascii_frames->size(); i++) {
 		std::cout << std::endl << ascii_frames->at(i);
-		Sleep(50);
+		Sleep(10);
 		cv::Mat capture = hwnd2mat(GetConsoleWindow());
 		video_writer << capture;
 	}
@@ -65,7 +66,7 @@ void I2A::Video::init_video(cv::VideoCapture& cap) const {
 }
 
 void I2A::Video::process_frame(cv::Mat & frame) const {
-	Converter converter(frame, color, pixelise, resize);
+	Converter converter(frame, color, pixelise, resize, rand);
 	ascii_frames->push_back( converter.get_ascii_image());
-	std::cout << "Processed frames: " << ascii_frames->size() << std::endl;
+//	std::cout << "Processed frames: " << ascii_frames->size() << std::endl;
 }

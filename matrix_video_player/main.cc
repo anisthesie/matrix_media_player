@@ -26,21 +26,23 @@ int main(int argc, char **argv) {
 		print_help();
 		return 1;
 	}
+	srand(time(0));
 
 	const bool& color = !input.cmdOptionExists("--no-color");
 	const bool& pixelise = !input.cmdOptionExists("--no-pixels");
 	const bool& resize = !input.cmdOptionExists("--no-resize");
+	const bool& rand = input.cmdOptionExists("--rand");
 
 	const std::string &filename = input.getCmdOption("--file");
 	if (!filename.empty()) {
 		cv::Mat mat = cv::imread(filename);
 		if (mat.empty()) {
-			I2A::Video video(filename, color, pixelise, resize);
+			I2A::Video video(filename, color, pixelise, resize, rand);
 			return 0;
 			}
 
 		
-		I2A::Converter converter(mat, color, pixelise, resize);
+		I2A::Converter converter(mat, color, pixelise, resize, rand);
 		converter.print_image();
 	}
 	else print_help();
