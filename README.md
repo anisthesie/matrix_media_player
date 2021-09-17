@@ -5,7 +5,7 @@ Matrix Media Player is command line tool that converts videos and images to asci
 It can record the output and write to a video file.
 
 # Building
-####The project requires OpenCV 3.0 or later.
+#### The project requires OpenCV 3.0 or later.
 
 ### Visual Studio 
 Install OpenCV in Visual Studio using your method of choice. [(I recommend vcpkg)](https://github.com/microsoft/vcpkg)
