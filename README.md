@@ -8,7 +8,8 @@ It can record the output and write to a video file.
 #### The project requires OpenCV 3.0 or later.
 
 ### Visual Studio 
-Install OpenCV in Visual Studio using your method of choice. [(I recommend vcpkg)](https://github.com/microsoft/vcpkg)
+Install OpenCV in Visual Studio using your method of choice. [(I recommend vcpkg)](https://github.com/microsoft/vcpkg).
+
 Clone this repository and open it in Visual Studio.
 
 ### CMake 
