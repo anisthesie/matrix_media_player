@@ -15,11 +15,13 @@ inline void print_help() {
 int main(int argc, char **argv) {
 
 	// Enable ANSI for windows cmd.
+    #ifdef WIN32
 	HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	DWORD dwMode = 0;
 	GetConsoleMode(hOut, &dwMode);
 	dwMode |= 0x0004;
 	SetConsoleMode(hOut, dwMode);
+    #endif
 
 	InputParser input(argc, argv);
 	if (input.cmdOptionExists("-h")) {

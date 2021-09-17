@@ -157,18 +157,18 @@ average Converter::calculate_average(UInt32 row, UInt32 col) const noexcept {
 			if (color) {
 				auto p = coloured_image.ptr<cv::Point3_<uchar> >(row + i, col + j);
 
-				avr.rgb.r += p->z;
-				avr.rgb.g += p->y;
-				avr.rgb.b += p->x;
+				avr.clr.r += p->z;
+				avr.clr.g += p->y;
+				avr.clr.b += p->x;
 
 				total++;
 			}
         }
     }
 	if (color) {
-		avr.rgb.r /= total;
-		avr.rgb.g /= total;
-		avr.rgb.b /= total;
+		avr.clr.r /= total;
+		avr.clr.g /= total;
+		avr.clr.b /= total;
 	}
     avr.sum =  (sum) / (square_size * square_size);
 	return avr;
@@ -186,11 +186,11 @@ std::string Converter::average_to_ascii(average avr) const noexcept
 	
 	if (color) {
 		character += "\x1b[38;2;";
-		character += std::to_string(avr.rgb.r);
+		character += std::to_string(avr.clr.r);
 		character += ";";
-		character += std::to_string(avr.rgb.g);
+		character += std::to_string(avr.clr.g);
 		character += ";";
-		character += std::to_string(avr.rgb.b);
+		character += std::to_string(avr.clr.b);
 		character += "m";
 	}
 

@@ -1,4 +1,4 @@
-
+#ifdef WIN32
 #include "screenshot.h"
 
 
@@ -50,4 +50,4 @@ cv::Mat hwnd2mat(HWND hwnd) { // https://stackoverflow.com/a/14167433
 
 	return src;
 }
-
+#endif

@@ -18,6 +18,7 @@ I2A::Video::Video(cv::VideoCapture& cap, bool color, bool pixelise, bool resize)
 }
 
 void I2A::Video::init_video(cv::VideoCapture& cap) const {
+#ifdef WIN32
 	if (!cap.isOpened()) {
 		std::cout << "!!! Failed to open file" << std::endl;
 		std::exit(-1);
@@ -63,6 +64,7 @@ void I2A::Video::init_video(cv::VideoCapture& cap) const {
 	std::cout << "Finished writing video" << std::endl;
 
 	delete(ascii_frames);
+#endif
 }
 
 void I2A::Video::process_frame(cv::Mat & frame) const {

@@ -1,19 +1,22 @@
 #pragma once
 #include "converter.h"
+
+#ifdef WIN32
 #include "screenshot.h"
+#include <Windows.h>
+#endif
 
 #include <vector>
 
-#include <opencv2\opencv.hpp>
-
-#include <Windows.h>
 
 namespace I2A {
 
 	struct win_console {
+#ifdef WIN32
 		HANDLE console_handle;
 		DWORD dwBytesWritten = 0;
-	};
+#endif
+    };
 
 class Video {
 

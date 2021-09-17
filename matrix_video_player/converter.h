@@ -22,7 +22,7 @@ namespace I2A
 	};
 	struct average {
 		UInt8 sum;
-		rgb rgb;
+		rgb clr;
 	};
     class Converter
     {
