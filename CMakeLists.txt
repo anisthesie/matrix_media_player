@@ -2,11 +2,9 @@ cmake_minimum_required(VERSION 3.20)
 project(matrix_media_player)
 
 set(CMAKE_CXX_STANDARD 14)
-
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(matrix_video_player)
-
 add_executable(matrix_media_player
         matrix_video_player/converter-types.h
         matrix_video_player/converter.cpp
@@ -18,3 +16,4 @@ add_executable(matrix_media_player
         matrix_video_player/screenshot.h
         matrix_video_player/video_player.cpp
         matrix_video_player/video_player.h)
+target_link_libraries(matrix_media_player ${OpenCV_LIBS})
