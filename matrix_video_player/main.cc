@@ -9,6 +9,7 @@ inline void print_help() {
 		<< "\t --no-color  : Prints without color" << std::endl
 		<< "\t --no-pixels : Prints everything with the same character (@)" << std::endl
 		<< "\t --no-resize : Doesn't resize the frames to fit the console" << std::endl
+        << "\t --rand      : Print with random characters" << std::endl
 		<< "\t --file (file path) : Input file path, image or video" << std::endl;
 }
 
