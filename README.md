@@ -24,7 +24,7 @@ Options:
          --file (file path) : Input file path, image or video
 ```
 Resize the command window so that the picture fits perfectly, when the recording starts do not move the window and keep it focused until the recording stops.
-If you have problems create the video file, try running the program with admin privileges.
+If you encounter problems while creating the video file, try running the program with admin privileges.
 
 # Examples
 ### Video Default                          //    Video --no-pixels
