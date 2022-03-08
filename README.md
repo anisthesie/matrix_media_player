@@ -1,8 +1,8 @@
 # Matrix Media Player
 
 
-Matrix Media Player is command line tool that converts videos and images to ascii art in the command line.
-It can record the output and write to a video file.
+Matrix Media Player is a command line tool that converts videos and images to ascii art in the command line.
+It can record the output and write it to a video file.
 
 # Building
 #### The project requires OpenCV 3.0 or later.
